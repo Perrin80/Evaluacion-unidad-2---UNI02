@@ -1,18 +1,74 @@
 {{> navbar}}
 <div class="container mt-3">
   <header class="my-5">
-    <h1>Bienvenido a mi blog</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies maximus mi sed faucibus. Donec auctor, dui nec varius condimentum, tellus mauris lobortis libero, vel finibus neque leo vel nisi. Nullam tellus magna, porttitor nec dolor non, iaculis facilisis felis. Mauris pharetra accumsan augue, dapibus blandit nisi facilisis vitae. Suspendisse ultrices egestas libero sit amet sodales. Suspendisse eu velit id urna eleifend egestas. Etiam sit amet quam luctus, interdum nulla sed, faucibus nisl.
-    </p>
-    <a href="/about">Conóceme</a>
+    <div class="container py-4">
+      <div class="row container d-flex justify-content-center">
+        <div class="col-md-6 col-lg-6 text-center">
+          <div class="container justify-content-center">
+            <img src="/img/contact-book-icon-4.jpg" width="200px">
+          </div>
+          <h1>Libreta de contactos actualizada</h1>
+          <div class="card text-center">
+            <div class="card-header">
+              ¡Agrega a las personas que desees!
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">¿Quieres sabr más de este programador simpaticón?</h5>
+              <p class="card-text">Pincha la cuestioncita y sabrás de mi ;)</p>
+              <a href="/about" class="btn btn-primary">About me!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
   <hr>
-  <h3 class="mt-5 mb-3">Últimos artículos</h3>
+  <h3 class="mt-5 mb-3">Lista de contactos agregados</h3>
   {{#each articles}}
+    <div class="container py-4">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="card bg-light">
+          <h1 style="text-align: center;">Calcular interés simple</h1>
+          <div class="card-body">
+            <form action="/" method="post">
+              <div class="form-group">
+                <label for="capital" class="form-label">Capital</label>
+                <input type="number" class="form-control" name="capital" value="{{capital}}">
+                <div class="mb-3"></div>
+              </div>
+              <div class="form-group">
+                <label for="tasa" class="form-label">Tasa Anual</label>
+                <input type="number" class="form-control" name="tasa" placeholder="%" value="{{tasa}}">
+                <div class="mb-3"></div>
+              </div>
+              <div class="form-group">
+                <label for="years" class="form-label">Periodo en años</label>
+                <input type="number" class="form-control" name="years" value="{{years}}">
+                <div class="mb-3"></div>
+              </div>
+              <div class="mb-3"></div>
+  
+              <!--<button type="submit" class="btn btn-primary">Calcular promedio</button> -->
+              <button type="submit" class="btn btn-block btn-bold btn-primary">Calcular interés</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
     <div class="card mb-3">
       <div class="card-body">
-        <img src="/img/{{this.image}}" width="250px" height="250px">
+        <div>
+        <img src="/img/{{this.image}}" width="150px" height="150px">
+        </div>
         <h5 class="card-title">/img/{{this.image}}</h5>
         <h5 class="card-title">{{this.title}}</h5>
         <p class="card-text">{{this.content}}</p>
