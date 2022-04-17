@@ -46,37 +46,34 @@
     </div> -->
 
     <div class="mb-3">
-    {{#if id}}
-      <label for="title" class="form-label">Fotografía de perfil</label>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm p-4">
-            <img src="/img/{{this.picture}}" width="200px" height="200px">
+      {{#if id}}
+        <label for="title" class="form-label">Fotografía de perfil</label>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm p-4">
+              <img src="/img/{{this.picture}}" width="200px" height="200px">
+            </div>
+            <div class="col-sm p-4">
+            </div>
+            <div class="col-sm-4">
+            </div>
           </div>
-          <div class="col-sm p-4">
-          </div>
-          <div class="col-sm-4">
-          </div>
-          
         </div>
-      </div>
-
-
-      <input type="file" class="form-control" name="image" accept='image/*' aria-describedby="imageHelp" required="true" value="{{image}}">
-      <div id="imageHelp" class="form-text">Es importante que subas una fotografía de "tu persona"</div>
+        <input type="file" class="form-control" name="image" accept='image/*' aria-describedby="imageHelp" required="true" value="{{image}}">
+        <div id="imageHelp" class="form-text">Es importante que subas una fotografía de "tu persona"
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Actualizar contacto</button>
+        </div>
+      {{else}}
+        <label for="title" class="form-label">Fotografía de perfil</label>
+        <input type="file" class="form-control" name="image" accept='image/*' aria-describedby="imageHelp" required="true" value="{{image}}">
+        <div id="imageHelp" class="form-text">Es importante que subas una fotografía de "tu persona"</div>
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Agregar contacto</button>
+        </div>
+      {{/if}}
     </div>
-    
-    <div class="mb-3">
-      <button type="submit" class="btn btn-primary">Agregar contacto</button>
-    </div>
-    {{else}}
-      <label for="title" class="form-label">Fotografía de perfil</label>
-      <input type="file" class="form-control" name="image" accept='image/*' aria-describedby="imageHelp" required="true" value="{{image}}">
-      <div id="imageHelp" class="form-text">Es importante que subas una fotografía de "tu persona"</div>
-    </div>
-    <div class="mb-3">
-      <button type="submit" class="btn btn-primary">Agregar contacto</button>
-    </div>
-    {{/if}}
   </form>
 </div>

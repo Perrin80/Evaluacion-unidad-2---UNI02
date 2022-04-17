@@ -1,6 +1,21 @@
 {{> navbar}}
-<div class="container mt-3">
-  <h3 class="mb-3">500 - El servidor explotó por un error desconocido</h3>
-  <img src="/img/peepo-floor.jpg" alt="pepe" style="max-width:600px;width=100%">
-  {{> backhome}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template">
+                <img src="/img/ohno.jpg" width="200px">
+                <p class="error-404">
+                    Oh no!</p>
+                <h2>
+                    ERROR 500</h2>
+                <div class="error-details">
+                    Ha ocurrido un error inesperado. Consulta al administrador!
+                </div>
+                <div class="error-actions">
+                    <a href="/" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-home"></span>Volver al Inicio</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

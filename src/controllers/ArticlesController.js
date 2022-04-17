@@ -1,6 +1,5 @@
 const ArticlesDAO = require('../models/dao/ArticlesDAO')
 const Multer = require('multer')
-
 class ArticlesController {
   constructor (db) {
     this.articlesDao = new ArticlesDAO(db)
@@ -136,6 +135,7 @@ class ArticlesController {
 
   async deleteArticleAndRenderResponse (req, res) {
     const id = req.params.id
+    const article = await this.articlesDao.getById(id)
 
     try {
       const article = await this.articlesDao.getById(id)
@@ -149,13 +149,16 @@ class ArticlesController {
 
       res.render('article-deleted', {
         id,
-        first_name: article.first_name
-        //title: article.title
+        first_name: article.first_name,
+        last_name: article.last_name,
+        picture: article.picture
+
       })
     } catch (error) {
       console.log(error)
       res.status(500).render('500')
     }
+
   }
 }
 
