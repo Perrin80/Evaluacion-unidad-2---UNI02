@@ -13,67 +13,70 @@
               ¡Agrega a las personas que desees!
             </div>
             <div class="card-body">
-              <h5 class="card-title">¿Quieres sabr más de este programador simpaticón?</h5>
-              <p class="card-text">Pincha la cuestioncita y sabrás de mi ;)</p>
-              <a href="/about" class="btn btn-primary">About me!</a>
+              <h5 class="card-title">Utiliza el menú superior para agregar nuevos contactos</h5>
+              <!-- <p class="card-text">Pincha la cuestioncita y sabrás de mi ;)</p>
+              <a href="/about" class="btn btn-primary">About me!</a>  -->
             </div>
           </div>
         </div>
       </div>
     </div>
   </header>
-  <hr>
-  <h3 class="mt-5 mb-3">Lista de contactos agregados</h3>
-  {{#each articles}}
-    <div class="container py-4">
-  <div class="padding">
-    <div class="row container d-flex justify-content-center">
-      <div class="col-md-6 col-lg-6">
-        <div class="card bg-light">
-          <h1 style="text-align: center;">Calcular interés simple</h1>
-          <div class="card-body">
-            <form action="/" method="post">
-              <div class="form-group">
-                <label for="capital" class="form-label">Capital</label>
-                <input type="number" class="form-control" name="capital" value="{{capital}}">
-                <div class="mb-3"></div>
-              </div>
-              <div class="form-group">
-                <label for="tasa" class="form-label">Tasa Anual</label>
-                <input type="number" class="form-control" name="tasa" placeholder="%" value="{{tasa}}">
-                <div class="mb-3"></div>
-              </div>
-              <div class="form-group">
-                <label for="years" class="form-label">Periodo en años</label>
-                <input type="number" class="form-control" name="years" value="{{years}}">
-                <div class="mb-3"></div>
-              </div>
-              <div class="mb-3"></div>
-  
-              <!--<button type="submit" class="btn btn-primary">Calcular promedio</button> -->
-              <button type="submit" class="btn btn-block btn-bold btn-primary">Calcular interés</button>
-            </form>
-          </div>
+    <hr>
+</div>
 
+{{#each articles}}
+<div class="container-lg">
+  <div class="row p-2">
+    <!-- Columnas Superiores -->
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-2 bg-light p-1">
+      <img class="rounded-circle" src="/img/{{this.picture}}" width="200px" height="200px">
+    </div>
+    <div class="col-md-6 bg-light">
+      <p class="p-3"></p>
+      <p class="card-text text-secondary">Nombre: {{this.first_name}} {{this.last_name}}</p>
+      <p class="card-text text-secondary">Teléfono: {{this.phone}}</p>
+      <p class="card-text text-secondary">Email: {{this.email}}</p>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <!-- Columnas Inferiores -->
+    <div class="col-md-2"></div>
+    <div class="col-md-8 d-flex justify-content-center bg-light card-footer border">
+      <a href="/articles/{{this.id}}" class="btn btn-primary btn-sm">Editar Información</a>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+{{/each}}
+
+<!--
+{{#each articles}}
+  <div class="container py-4">
+    <div class="padding">
+      <div class="row container d-flex justify-content-center">
+        <div class="col-md-8 col-lg-8">
+          <div class="card bg-light">
+            <div class="container ">
+              <div class="row">
+                <div class="col-sm p-4">
+                  <img src="/img/{{this.picture}}" width="200px" height="200px">
+                </div>
+                <div class="col-sm-5 p-4">
+                  <div class="card-body">
+                    <p class="card-text text-secondary">Nombre: {{this.first_name}} {{this.last_name}}</p>
+                    <p class="card-text text-secondary">Teléfono: {{this.phone}}</p>
+                    <p class="card-text text-secondary">Email: {{this.email}}</p>
+                    <a href="/articles/{{this.id}}" class="btn btn-primary btn-sm">Editar Información</a>
+                  </div>
+                </div>
+              <div class="col-sm-3">
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-
-
-
-    <div class="card mb-3">
-      <div class="card-body">
-        <div>
-        <img src="/img/{{this.image}}" width="150px" height="150px">
-        </div>
-        <h5 class="card-title">/img/{{this.image}}</h5>
-        <h5 class="card-title">{{this.title}}</h5>
-        <p class="card-text">{{this.content}}</p>
-        <a href="/articles/{{this.id}}" class="btn btn-primary btn-sm">Leer más</a>
-      </div>
-    </div>
-  {{/each}}
-</div>
+{{/each}} -->

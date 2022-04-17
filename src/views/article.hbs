@@ -1,15 +1,46 @@
 {{> navbar}}
-<div class="container mt-3">
-  <img src="/img/{{image}}" width="250px" height="250px">
-  <h1>{{title}}</h1>
-  <p>{{content}}</p>
-  <div class="mt-3 d-flex gap-2">
-    <a href="/articles/{{id}}/update">
-      <button class="btn btn-primary btn-sm">Editar</button>
-    </a>
-    <form action="/articles/{{id}}/delete" method="POST">
-      <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-    </form>
+<div class="container py-4">
+    <div class="padding">
+      <div class="row container d-flex justify-content-center">
+        <div class="col-md-8 col-lg-8">
+          <div class="card bg-light">
+            <div class="container ">
+              <div class="row">
+                <div class="col-sm p-4">
+                  <img class="rounded-circle" src="/img/{{this.picture}}" width="200px" height="200px">
+                </div>
+                <div class="col-sm-5 p-4">
+                  <div class="card-body">
+                    <p class="card-text text-secondary">Nombre: {{this.first_name}} {{this.last_name}}</p>
+                    <p class="card-text text-secondary">Teléfono: {{this.phone}}</p>
+                    <p class="card-text text-secondary">Email: {{this.email}}</p>
+                    
+                  </div>
+                </div>
+              <div class="col-sm-3">
+            </div>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3">
+              </div>
+              <div class="col-lg-3">
+                <a href="/articles/{{id}}/update" class="btn btn-primary btn-sm">Editar Información</a>
+              </div>
+              <div class="col-lg-3">
+                <form action="/articles/{{id}}/delete" method="POST">
+                  <button type="submit" class="btn btn-danger btn-sm">Eliminar Contacto</button>
+                  <!-- <a href="/articles/{{id}}/delete" class="btn btn-danger btn-sm">Eliminar Contacto</a> -->
+                </form>
+              </div>
+              <div class="col-lg-3">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  {{> backhome}}
 </div>

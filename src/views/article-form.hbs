@@ -2,9 +2,9 @@
 <div class="container mt-3">
   <h1>
     {{#if id}}
-      Actualizando el artículo "{{title}}" ({{id}})
+      Actualizando información de contacto:  "{{first_name}} {{last_name}}"
     {{else}}
-      Crear un nuevo artículo
+      Agrega un nuevo contacto
     {{/if}}
   </h1>
   <!--
@@ -13,27 +13,70 @@
   -->
   <form action="/articles/{{#if id}}{{id}}/update{{else}}create{{/if}}" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
-      <label for="title" class="form-label">Título</label>
-      <input type="text" class="form-control" name="title" aria-describedby="titleHelp" required="true" value="{{title}}">
-      <div id="titleHelp" class="form-text">Utiliza un título ingenioso</div>
+      <label for="first_name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="first_name" aria-describedby="first_nameHelp" required="true" value="{{first_name}}">
+      <div id="first_name" class="form-text">Debes ingresar tu nombre</div>
     </div>
     <div class="mb-3">
-      <label for="content" class="form-label">Contenido</label>
+      <label for="last_name" class="form-label">Apellido</label>
+      <input type="text" class="form-control" name="last_name" aria-describedby="last_nameHelp" required="true" value="{{last_name}}">
+      <div id="last_nameHelp" class="form-text">Debes ingresar tu apellido</div>
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Telèfono</label>
+      <input type="text" class="form-control" name="phone" aria-describedby="phoneHelp" placeholder="+569 12345678" required="true" value="{{phone}}">
+      <div id="phoneHelp" class="form-text">Debes ingresar un número de contacto</div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="text" class="form-control" name="email" aria-describedby="emailHelp" required="true" value="{{email}}">
+      <div id="emailHelp" class="form-text">Debes ingresar tu dirección de correo</div>
+    </div>
+
+    <!--<
+    <div class="mb-3">
+      <label for="content" class="form-label">Algo interesante sobre ti</label>
       <textarea class="form-control" name="content" rows="3" aria-describedby="contentHelp">{{content}}</textarea>
       <div id="contentHelp" class="form-text">¿Que quieres contar al mundo?</div>
     </div>
-    <!--<div class="mb-3">
+    div class="mb-3">
       <label for="title" class="form-label">Imagen</label>
       <input type="text" class="form-control" name="image" aria-describedby="imageHelp" required="true" value="{{image}}">
       <div id="imageHelp" class="form-text">Utiliza una buena imagen</div>
     </div> -->
+
     <div class="mb-3">
-      <label for="title" class="form-label">Imagen</label>
+    {{#if id}}
+      <label for="title" class="form-label">Fotografía de perfil</label>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm p-4">
+            <img src="/img/{{this.picture}}" width="200px" height="200px">
+          </div>
+          <div class="col-sm p-4">
+          </div>
+          <div class="col-sm-4">
+          </div>
+          
+        </div>
+      </div>
+
+
       <input type="file" class="form-control" name="image" accept='image/*' aria-describedby="imageHelp" required="true" value="{{image}}">
-      <div id="imageHelp" class="form-text">Utiliza una buena imagen</div>
+      <div id="imageHelp" class="form-text">Es importante que subas una fotografía de "tu persona"</div>
+    </div>
+    
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Agregar contacto</button>
+    </div>
+    {{else}}
+      <label for="title" class="form-label">Fotografía de perfil</label>
+      <input type="file" class="form-control" name="image" accept='image/*' aria-describedby="imageHelp" required="true" value="{{image}}">
+      <div id="imageHelp" class="form-text">Es importante que subas una fotografía de "tu persona"</div>
     </div>
     <div class="mb-3">
-      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="submit" class="btn btn-primary">Agregar contacto</button>
     </div>
+    {{/if}}
   </form>
 </div>

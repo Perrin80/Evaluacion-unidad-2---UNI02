@@ -33,9 +33,11 @@ class ArticlesController {
 
       res.render('article', {
         id,
-        title: article.title,
-        content: article.content,
-        image: article.image
+        first_name: article.first_name,
+        last_name: article.last_name,
+        email: article.email,
+        phone: article.phone,
+        picture: article.picture
       })
     } catch (error) {
       console.log(error)
@@ -60,9 +62,11 @@ class ArticlesController {
 
       res.render('article-form', {
         id,
-        title: article.title,
-        content: article.content,
-        image: article.image
+        first_name: article.first_name,
+        last_name: article.last_name,
+        email: article.email,
+        phone: article.phone,
+        picture: article.picture
       })
     } catch (error) {
       console.log(error)
@@ -71,8 +75,10 @@ class ArticlesController {
   }
 
   async insertAndRenderArticle (req, res) {
-    const title = req.body.title
-    const content = req.body.content
+    const firstname = req.body.first_name
+    const lastname  = req.body.last_name
+    const email     = req.body.email
+    const phone     = req.body.phone
     
     var storage = Multer.diskStorage({
       destination: (req, file, callBack) => {
@@ -84,7 +90,7 @@ class ArticlesController {
     })
 
     const upload = req.file.filename
-    const article = { title, content, upload }
+    const article = { firstname, lastname, email, phone, upload }
 
     try {
       const id = await this.articlesDao.create(article)
@@ -97,13 +103,27 @@ class ArticlesController {
   }
 
   async updateAndRenderArticle (req, res) {
-    const id = req.params.id
-    const title = req.body.title
-    const content = req.body.content
-    const image = req.body.image
+    const id        = req.params.id
+    const firstname = req.body.first_name
+    const lastname  = req.body.last_name
+    const email     = req.body.email
+    const phone     = req.body.phone
+
+    var storage = Multer.diskStorage({
+      destination: (req, file, callBack) => {
+          callBack('/img/')     // './public/images/' directory name where save the file
+      },
+      filename: (req, file, callBack) => {
+          callBack(file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+      }
+    })
+
+    const upload = req.file.filename
+    
 
     try {
-      const article = { title, content, id, image }
+      //const article = { title, content, id, image }
+      const article = { id, firstname, lastname, email, phone, upload }
 
       await this.articlesDao.update(article)
 
@@ -129,7 +149,8 @@ class ArticlesController {
 
       res.render('article-deleted', {
         id,
-        title: article.title
+        first_name: article.first_name
+        //title: article.title
       })
     } catch (error) {
       console.log(error)
