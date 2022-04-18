@@ -30,7 +30,7 @@ class ArticlesController {
         return
       }
 
-      res.render('article', {
+      res.render('contact', {
         id,
         first_name: article.first_name,
         last_name: article.last_name,
@@ -45,7 +45,7 @@ class ArticlesController {
   }
 
   renderArticleCreationForm (req, res) {
-    res.render('article-form')
+    res.render('contact-form')
   }
 
   async renderArticleUpdateForm (req, res) {
@@ -59,7 +59,7 @@ class ArticlesController {
         return
       }
 
-      res.render('article-form', {
+      res.render('contact-form', {
         id,
         first_name: article.first_name,
         last_name: article.last_name,
@@ -147,7 +147,7 @@ class ArticlesController {
 
       await this.articlesDao.delete(id)
 
-      res.render('article-deleted', {
+      res.render('contact-deleted', {
         id,
         first_name: article.first_name,
         last_name: article.last_name,
